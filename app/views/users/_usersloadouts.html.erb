@@ -1,0 +1,11 @@
+<br/>
+<% current_user.loadouts.each do |b|%>
+    <div class="Loadout">
+    loadout name: <%= b.loadout_name %> 
+    <br/>
+    weapon:<%= b.weapon %>
+    <br/>
+    <%= link_to 'edit Loadout', edit_loadout_path(b)%>
+    </div>
+    <br/>
+<% end %>

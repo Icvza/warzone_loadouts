@@ -1,0 +1,59 @@
+<% if @loadout.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@loadout.errors.count, "error") %> prohibited this article from being saved:</h2>  
+      <ul>
+        <% @loadout.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+<% end %>
+<%= form_with model: @loadout do |f| %>
+    
+    <%= f.label :loadout_name %>
+    <%= f.text_field :loadout_name %><br>
+    
+    <%= f.label :weapon %>
+    <%= f.text_field :weapon %><br>
+    
+    <%= f.label :optic %>
+    <%= f.text_field :optic %><br>
+    
+    <%= f.label :muzzle%>
+    <%= f.text_field :muzzle%><br>
+    
+    <%= f.label :barrel %>
+    <%= f.text_field :barrel%><br>
+    
+    <%= f.label :underbarrel %>
+    <%= f.text_field :underbarrel %><br>
+    
+    <%= f.label :ammunition %>
+    <%= f.text_field :ammunition %><br>
+    
+    <%= f.label :stock %>
+    <%= f.text_field :stock %><br>
+    
+    <%= f.label :girp %>
+    <%= f.text_field :girp %><br>
+    
+    <%= f.label :gun_perk %>
+    <%= f.text_field :gun_perk %><br>
+    
+    <%= f.label :perk_1 %>
+    <%= f.text_field :perk_1 %><br>
+    
+    <%= f.label :perk_2 %>
+    <%= f.text_field :perk_2 %><br>
+    
+    <%= f.label :perk_3 %>
+    <%= f.text_field :perk_3 %><br>
+    
+    <%= f.label :lethal %>
+    <%= f.text_field :lethal %><br>
+    
+    <%= f.label :tactical %>
+    <%= f.text_field :tactical %><br>
+    
+    <%= f.submit @loadout.persisted? ? 'Save Changes' : 'Create Loadout' %><br>
+<% end %>
