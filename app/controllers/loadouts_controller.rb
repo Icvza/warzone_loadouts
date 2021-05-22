@@ -17,7 +17,8 @@ class LoadoutsController < ApplicationController
      
       def create
         @loadout = current_user.loadouts.build(loadout_params)
-         if @loadout.save
+        binding.pry 
+        if @loadout.save
            redirect_to user_path(@loadout.user_id) 
            #Will have to redirect to the users profile 
          else
@@ -51,7 +52,7 @@ class LoadoutsController < ApplicationController
     end
 
     def loadout_params
-      params.require(:loadout).permit(:loadout_name, :weapon, :optic, :muzzle, :barrel, :underbarrel, :ammunition, :stock, :girp, :gun_perk, :perk_1, :perk_2, :perk_3, :lethal, :tactical)
+      params.require(:loadout).permit(:loadout_name, :weapon, :optic, :muzzle, :barrel, :underbarrel, :ammunition, :stock, :girp, :gun_perk, :perk_1, :perk_2, :perk_3, :lethal, :tactical, :user_id)
     end 
     
     def require_ownership

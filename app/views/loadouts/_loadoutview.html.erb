@@ -1,0 +1,16 @@
+<% @loadouts.each do |b|%>
+    <div class="Loadout">
+    Creator: <%= User.find(b.user_id).username %>
+    <br/>
+    loadout name: <%= b.loadout_name %> 
+    <br/>
+    weapon:<%= b.weapon %>
+    <br/>
+        <%if b.user_id == current_user.id %>
+            Your loadout! <%= link_to 'View', loadout_path(b)%>
+        <%else %>
+            <%= link_to 'View', loadout_path(b)%>
+        <%end%>
+    </div>
+    <br/>
+<% end %>

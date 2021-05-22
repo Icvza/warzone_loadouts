@@ -37,8 +37,11 @@ ActiveRecord::Schema.define(version: 2021_05_22_001917) do
   end
 
   create_table "suggestions", force: :cascade do |t|
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.string "content"
+    t.integer "user_id"
+    t.integer "loadout_id"
+    t.index ["loadout_id"], name: "index_suggestions_on_loadout_id"
+    t.index ["user_id"], name: "index_suggestions_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

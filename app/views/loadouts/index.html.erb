@@ -1,22 +1,10 @@
 <h1>Welcome to the Warzon Loadout app Here you can see all of the loadouts that have been created</h1>
 <br/>
-<% @loadouts.each do |b|%>
-    <div class="Loadout">
-    <%binding.pry%>
-    loadout name: <%= b.loadout_name %> 
-    <br/>
-    weapon:<%= b.weapon %>
-    <br/>
-    <%= link_to 'edit Loadout', edit_loadout_path(b)%>
-    </div>
-    <br/>
+<%= render partial: 'loadoutview'%>
+<br/>
+
+<%if logged_in?%>
+    <%= link_to 'Back home', root_path%>
+<% else %>
+    <%= link_to 'login', login_path%>
 <% end %>
-<%=%>
-<%=%>
-<%=%>
-<%=%>
-<%=%>
-<%=%>
-<%=%>
-<%=%>
-<%=%>

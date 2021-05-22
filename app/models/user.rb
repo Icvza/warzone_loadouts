@@ -1,6 +1,7 @@
 class User < ApplicationRecord
-     has_many :loadouts
-    # has_many :events, through: :babies 
+     has_many :suggestions
+     has_many :loadouts, through: :suggestions
+     
     
     has_secure_password
 

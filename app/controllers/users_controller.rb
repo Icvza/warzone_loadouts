@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     end
   
     def show 
-      
+      @loadouts = Loadout.where(user_id: current_user.id)
     end
   
     def new 
