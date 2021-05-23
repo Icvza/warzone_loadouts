@@ -1,9 +1,8 @@
 class Loadout < ApplicationRecord
-     has_many :suggestions
-     has_many :users, through: :suggestions
+     has_many :mods
+     has_many :users, through: :mods
 
 
      validates :weapon, presence: true
-     validates :loadout_name, presence: true, :uniqueness => { :case_sensitive => false }
-    
+     validates :loadout_name, presence: true
 end

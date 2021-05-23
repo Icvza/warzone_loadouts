@@ -1,6 +1,6 @@
 class LoadoutsController < ApplicationController
     #include LoudoutsHelper
-    before_action :require_ownership, except: [:new, :create, :index]
+    #before_action :require_ownership, except: [:new, :create, :index]
     before_action :set_loadout, only: [:update, :edit, :destroy, :show]
       
       def index
@@ -15,15 +15,14 @@ class LoadoutsController < ApplicationController
         @loadout = Loadout.new
       end
      
-      def create
-        @loadout = current_user.loadouts.build(loadout_params)
-        binding.pry 
-        if @loadout.save
-           redirect_to user_path(@loadout.user_id) 
-           #Will have to redirect to the users profile 
-         else
-          render :new
-         end
+      def create 
+        @loadout = Loadout.new(loadout_params)
+          if @loadout.save 
+            redirect_to user_path(current_user.id) 
+          else 
+            flash[:errors] = @user.errors.full_messages
+            render :new
+          end 
       end
   
       def edit
@@ -52,7 +51,7 @@ class LoadoutsController < ApplicationController
     end
 
     def loadout_params
-      params.require(:loadout).permit(:loadout_name, :weapon, :optic, :muzzle, :barrel, :underbarrel, :ammunition, :stock, :girp, :gun_perk, :perk_1, :perk_2, :perk_3, :lethal, :tactical, :user_id)
+      params.require(:loadout).permit(:loadout_name, :weapon, :optic, :muzzle, :barrel, :underbarrel, :ammunition, :stock, :girp, :gun_perk, :perk_1, :perk_2, :perk_3, :lethal, :tactical, :creator, :remarks)
     end 
     
     def require_ownership

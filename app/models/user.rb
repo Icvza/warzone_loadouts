@@ -1,6 +1,7 @@
 class User < ApplicationRecord
-     has_many :suggestions
-     has_many :loadouts, through: :suggestions
+     has_many :mods
+     has_many :loadouts
+     has_many :loadouts, through: :mods
      
     
     has_secure_password

@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   resources :sessions
   resources :users
   resources :loadouts do
-    resources :suggestions
+    resources :mods
   end
-  resources :suggestions
+  resources :mods
 end

@@ -10,6 +10,8 @@
 <% end %>
 <%= form_with model: @loadout do |f| %>
     
+    <%= f.hidden_field :creator, value: current_user.username %>
+
     <%= f.label :loadout_name %>
     <%= f.text_field :loadout_name %><br>
     
@@ -54,6 +56,11 @@
     
     <%= f.label :tactical %>
     <%= f.text_field :tactical %><br>
+
+    <%= f.label :remarks %>
+    <%= f.text_area :remarks %><br>
+
+
     
     <%= f.submit @loadout.persisted? ? 'Save Changes' : 'Create Loadout' %><br>
 <% end %>

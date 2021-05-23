@@ -1,0 +1,3 @@
+class ModsController < ApplicationController
+    
+end

@@ -13,7 +13,7 @@
 ActiveRecord::Schema.define(version: 2021_05_22_001917) do
 
   create_table "loadouts", force: :cascade do |t|
-    t.integer "user_id"
+    t.string "creator"
     t.string "loadout_name"
     t.string "weapon"
     t.string "optic"
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 2021_05_22_001917) do
     t.string "perk_3"
     t.string "lethal"
     t.string "tactical"
+    t.string "remarks"
   end
 
   create_table "sessions", force: :cascade do |t|
