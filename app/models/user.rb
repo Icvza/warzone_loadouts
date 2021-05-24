@@ -1,8 +1,7 @@
 class User < ApplicationRecord
-     has_many :mods
-     has_many :loadouts
-     has_many :loadouts, through: :mods
-     
+    has_many :tactics
+    has_many :game_modes, through: :tactics
+    has_many :loadouts
     
     has_secure_password
 

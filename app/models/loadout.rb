@@ -1,7 +1,6 @@
 class Loadout < ApplicationRecord
-     has_many :mods
-     has_many :users, through: :mods
-
+     has_many :tactics
+     belongs_to :user
 
      validates :weapon, presence: true
      validates :loadout_name, presence: true
