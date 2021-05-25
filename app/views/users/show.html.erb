@@ -1,16 +1,12 @@
 USERS SHOW PAGE 
-
+<br/>
 <h1> You're profile: <%= @user.name %>  <h1>
 <h3> Seen as: <%= @user.username %>  <h3>
-<%= link_to 'Feed', loadouts_path%>
+
+<%= render partial: "navlinks" %> 
 <br/>
-<%= link_to('logout', logout_path, method: 'get') %>
 <br/>
-<%= link_to('delete', user_path(@user), method: 'delete') %>
-<br/>
-<%= link_to 'edit', edit_user_path(@user)%>
-<br/>
-<%= link_to 'Create a new loadout', new_loadout_path%>
+<%= render partial: "users_gamemodes" %>
 <br/>
 
 

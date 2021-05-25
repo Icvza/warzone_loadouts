@@ -1,6 +1,7 @@
 class CreateLoadouts < ActiveRecord::Migration[6.1]
   def change
     create_table :loadouts do |t|
+      t.integer :user_id
       t.string :creator
       t.string :loadout_name
       t.string :weapon

@@ -12,11 +12,15 @@ class LoadoutsController < ApplicationController
       end
     
       def new
-        @loadout = Loadout.new
+        if logged_in?
+          @loadout = Loadout.new
+        else
+          redirect_to root_path
+        end
       end
      
       def create 
-        @loadout = Loadout.new(loadout_params)
+        @loadout = current_user.loadouts.build(loadout_params)
           if @loadout.save 
             redirect_to user_path(current_user.id) 
           else 

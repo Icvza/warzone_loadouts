@@ -1,0 +1,25 @@
+<br/>
+<% if @tactic.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@tactic.errors.count, "error") %> prohibited this article from being saved:</h2>  
+      <ul>
+        <% @tactic.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+<% end %>
+
+<%= form_with model: @tactic do |f| %>
+
+    <%= f.label :strategy%>
+    <%= f.text_area :strategy%><br>
+    
+    <%= f.hidden_field :creator, value: current_user.username %>  
+    
+    <br/>
+    <%= f.collection_select :gamemode_id, Gamemode.all, :id, :mode_name, prompt: true%><br>
+    <br/>
+    <%= f.submit @tactic.persisted? ? 'Save Changes' : 'Create Tactic' %><br>
+   
+<% end %>

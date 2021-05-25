@@ -1,0 +1,24 @@
+<br/>
+<br/>
+<br/>
+INDEX ROUTE FOR TACTICS 
+
+<div class="tactic_container">
+    <% @tactics.each do |tactic| %>
+        Strategy: <%= tactic.strategy%>
+        <br/>
+        Creator: <%= tactic.user.username%>
+        <br/>
+        <%if logged_in? && tactic.creator == current_user.username %>
+            Your tactic! <%= link_to 'View', tactic_path(tactic)%>
+        <%else %>
+            <%= link_to 'View', tactic_path(tactic)%>
+        <%end%>
+        <br/>
+        <br/>
+    <% end %>
+</div>
+
+
+
+

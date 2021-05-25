@@ -1,2 +1,0 @@
-class GameModesController < ApplicationController
-end

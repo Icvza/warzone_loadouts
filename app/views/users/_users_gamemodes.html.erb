@@ -1,0 +1,10 @@
+
+<div class="users_game_modes">
+<% @user.tactics.each do |tactic|%>
+    <br/>
+    <br/>
+    For game mode: <%=tactic.gamemode.mode_name%>
+    <br/>
+    <%=tactic.strategy%>
+<%end%>
+</div>

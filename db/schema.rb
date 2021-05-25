@@ -10,9 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_22_001917) do
+ActiveRecord::Schema.define(version: 2021_05_25_031120) do
+
+  create_table "gamemodes", force: :cascade do |t|
+    t.string "mode_name"
+  end
 
   create_table "loadouts", force: :cascade do |t|
+    t.integer "user_id"
     t.string "creator"
     t.string "loadout_name"
     t.string "weapon"
@@ -37,12 +42,11 @@ ActiveRecord::Schema.define(version: 2021_05_22_001917) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "suggestions", force: :cascade do |t|
-    t.string "content"
+  create_table "tactics", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "loadout_id"
-    t.index ["loadout_id"], name: "index_suggestions_on_loadout_id"
-    t.index ["user_id"], name: "index_suggestions_on_user_id"
+    t.integer "gamemode_id"
+    t.string "strategy"
+    t.string "creator"
   end
 
   create_table "users", force: :cascade do |t|
@@ -50,6 +54,8 @@ ActiveRecord::Schema.define(version: 2021_05_22_001917) do
     t.string "username"
     t.string "email"
     t.string "password_digest"
+    t.string "uid"
+    t.string "provider"
   end
 
 end

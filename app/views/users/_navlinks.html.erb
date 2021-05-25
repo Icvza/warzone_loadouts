@@ -1,0 +1,15 @@
+<%= link_to 'Feed', loadouts_path%>
+<br/>
+<%= link_to('logout', logout_path, method: 'get') %>
+<br/>
+<%= link_to('delete', user_path(@user), method: 'delete') %>
+<br/>
+<%= link_to 'edit', edit_user_path(@user)%>
+<br/>
+<br/>
+<br/>
+<%= link_to 'Create a new loadout', new_loadout_path%>
+<br/>
+<%= link_to 'Create a new tactic', new_tactic_path%>
+<br/>
+<%= link_to 'Add a new game mode', new_gamemode_path%>

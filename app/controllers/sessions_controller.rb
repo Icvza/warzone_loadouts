@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
              session[:user_id] = user.id
              redirect_to user_path(current_user.id)
            else 
-             render :new
+            render :new
            end 
       end
     
@@ -19,4 +19,21 @@ class SessionsController < ApplicationController
         session.delete :user_id
         redirect_to '/'
       end
-end
+
+
+      def omniauth 
+        user = User.find_or_create_by(uid: request.env['omniauth.auth'][:uid], provider: request.env['omniauth.auth'][:provider]) do |u|
+          u.username = request.env['omniauth.auth'][:info][:first_name]
+          u.email = request.env['omniauth.auth'][:info][:email]
+          u.name = request.env['omniauth.auth'][:info][:first_name]
+          u.password = SecureRandom.hex(15)
+        end 
+        if user.valid?
+          session[:user_id] = user.id 
+          redirect_to user_path(current_user.id)
+        else
+          redirect_to login_path 
+        end 
+      end 
+
+    end
