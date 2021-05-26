@@ -12,8 +12,7 @@ class UsersController < ApplicationController
   end
   
   def new 
-    if !logged_in? || params[:loadout_id]
-      @loadout = Loadout.find_by(id: params[:baby_id]) 
+    if !logged_in?
       @user = User.new
     else
       redirect_to user_path(current_user.id)

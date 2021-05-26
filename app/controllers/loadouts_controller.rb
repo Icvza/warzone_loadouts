@@ -24,7 +24,7 @@ class LoadoutsController < ApplicationController
           if @loadout.save 
             redirect_to user_path(current_user.id) 
           else 
-            flash[:errors] = @user.errors.full_messages
+            flash[:errors] = @loadout.errors.full_messages
             render :new
           end 
       end

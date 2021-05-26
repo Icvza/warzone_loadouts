@@ -19,18 +19,13 @@
     
     <br/>
     Game mode: <%= f.collection_select :gamemode_id, Gamemode.all, :id, :mode_name, prompt: true%><br>
-    
     <br/>
 
     <% if @loadout%>  
-    <%=%>
-    <%=%>
-    <%=%>  
-
-    Select Loadout: <%= f.collection_select :loadout_id, Loadout.all, :id, :loadout_name, prompt: true%><br>
-    
-    
-    
+       creating tactic with:  <%= @loadout.loadout_name%> <%= f.hidden_field :loadout_id, value: @loadout.id %>
+       <% else %>
+        Select Loadout:<%= f.collection_select :loadout_id, Loadout.all, :id, :loadout_name, prompt: true%><br>
+    <%end%>
     
     <br/>
     <%= f.submit @tactic.persisted? ? 'Save Changes' : 'Create Tactic' %><br>

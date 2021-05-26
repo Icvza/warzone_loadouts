@@ -14,9 +14,11 @@ class TacticsController < ApplicationController
   end
     
   def new
-    if logged_in?
+    if logged_in? || params[:loadout_id]
+      @loadout = Loadout.find_by(id: params[:loadout_id]) 
       @tactic = Tactic.new
     else
+      @tactic = Tactic.new
       redirect_to root_path 
     end
   end
@@ -27,7 +29,6 @@ class TacticsController < ApplicationController
       redirect_to user_path(current_user)
     else
       render :new
-      binding.pry
     end
   end
 
