@@ -1,0 +1,15 @@
+<br/>
+<br/>
+
+search results 
+
+<% if @tacitcs.empty? %>
+    looks like nothing matched your search try again
+    <% else %>
+        <% @tacitcs.each do |c| %>
+        <%= c.strategy %>
+    <% end %>
+<% end %>
+
+
+<%= link_to 'go back', user_path(current_user.id)%>

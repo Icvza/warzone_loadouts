@@ -3,4 +3,6 @@ class Gamemode < ApplicationRecord
     has_many :users, through: :tactics
 
     validates :mode_name, presence: true
+
+
 end

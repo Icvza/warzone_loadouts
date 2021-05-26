@@ -1,12 +1,13 @@
 class GamemodesController < ApplicationController
+  include GamemodesHelper
+  before_action :set_gamemode, [:show, :edit, :destroy]
     
   def index
     @gamemodes = Gamemode.all
-    #this might be a good spot for the scope method where eveything will show
   end
   
   def show 
-    @gamemode = Gamemode.find(params[:id])
+    
   end
   
   def new 
@@ -28,7 +29,7 @@ class GamemodesController < ApplicationController
   end
 
   def edit 
-    @gamemode = Gamemode.find(params[:id])
+   
   end
   
   def update
@@ -41,15 +42,10 @@ class GamemodesController < ApplicationController
   end
   
   def destroy
-    @gamemode = Gamemode.find(params[:id])
     @gamemode.destroy
     redirect_to signup_path
   end
 
-  private
-  
-  def gamemode_params
-    params.require(:gamemode).permit(:mode_name)
-  end
+
 
 end

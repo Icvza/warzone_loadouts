@@ -10,8 +10,5 @@ class User < ApplicationRecord
     validates :name, presence: true
     validates :username, presence: true
 
-    def self.mode_tactics(user)
-        self.joins(tactics: :gamemode).where(user_id.to_i = user.id).
-    end
-end
+ 
 end

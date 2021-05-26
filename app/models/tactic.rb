@@ -5,5 +5,11 @@ class Tactic < ApplicationRecord
     
     validates :strategy, presence: true
 
+
+    def self.search(strategy)
+        self.where('strategy LIKE ?', "%#{strategy}%")
+    end
+
+
     
 end

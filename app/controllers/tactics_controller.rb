@@ -1,4 +1,7 @@
 class TacticsController < ApplicationController
+  include TacticsHelper
+  before_action :require_login, except: [:new, :create, :index]
+  before_action :set_tactic, only: [:update, :edit, :destroy, :show]
     
   def index
     if params[:loadout_id]
@@ -9,10 +12,14 @@ class TacticsController < ApplicationController
   end
     
   def show 
-    #find_by will throw an error
-    @tactic = Tactic.find(params[:id])
-  end
     
+  end
+
+  def search
+    results = Tactic.search(params[:strategy]) 
+    @tacitcs = results.where(user_id: current_user.id)
+  end 
+
   def new
     if logged_in? || params[:loadout_id]
       @loadout = Loadout.find_by(id: params[:loadout_id]) 
@@ -33,13 +40,10 @@ class TacticsController < ApplicationController
   end
 
   def edit 
-    #test this 
-    @tactic = Tactic.find(params[:id])
+    
   end
     
   def update
-      #edit this 
-      @tactic = Tactic.find(params[:id])
     if @tactic.update(tactic_params)
       redirect_to tactic_path(@tactic)
     else 
@@ -49,25 +53,9 @@ class TacticsController < ApplicationController
   end
       
   def destroy
-    @tactic = Tactic.find(params[:id]) 
     @tactic.destroy
     redirect_to signup_path
   end
-      
-  private
-  #make sure theses methods alighn 
-  #def set_tactic
-  #  @tactic = Tactic.find_by(params[:id])
-  #end
+    
 
-  def tactic_params
-    params.require(:tactic).permit(:user_id, :gamemode_id, :strategy, :creator, :loadout_id)
-  end 
-
-  def require_login
-    unless logged_in?
-      flash[:error] = "You must be logged in to access this section"
-      redirect_to login_path
-    end
-  end
 end
