@@ -1,6 +1,6 @@
 class LoadoutsController < ApplicationController
     include LoadoutsHelper
-    before_action :require_ownership, except: [:new, :create, :index, :show]
+    before_action :require_ownership, except: [:new, :create, :index, :show, :abc]
     before_action :set_loadout, only: [:update, :edit, :destroy, :show]
       
       def index
@@ -39,6 +39,10 @@ class LoadoutsController < ApplicationController
         else 
           render :edit
         end 
+      end
+
+      def abc
+        @loadouts = Loadout.alphab
       end
     
       def destroy

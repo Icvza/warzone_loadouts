@@ -1,24 +1,10 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+1- Clone and fork this repository
+2- Run bundle install
+3- Migrate by running rails db:migrate
+4- seed the game modes by running rails db:seed
+5- If you wish to use OMNIAUTH please add your GOOGLE_CLIENT_ID and secrete id to an env.file 
+6-run rails s to start the server
+7-copy and paste the link to a webrowser 
+8- ENJOY warzone 

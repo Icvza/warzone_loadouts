@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get '/logout', to: 'sessions#destroy'
   get '/auth/:provider/callback', to: 'sessions#omniauth'
   get '/search', to: 'tactics#search'
+  get '/loadouts/abc', to: 'loadouts#abc'
   resources :gamemodes
   resources :sessions
   resources :users
