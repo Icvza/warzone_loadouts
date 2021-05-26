@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_25_031120) do
+ActiveRecord::Schema.define(version: 2021_05_26_030326) do
 
   create_table "gamemodes", force: :cascade do |t|
     t.string "mode_name"
@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(version: 2021_05_25_031120) do
     t.integer "gamemode_id"
     t.string "strategy"
     t.string "creator"
+    t.integer "loadout_id"
   end
 
   create_table "users", force: :cascade do |t|

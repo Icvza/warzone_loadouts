@@ -2,6 +2,7 @@ class GamemodesController < ApplicationController
     
   def index
     @gamemodes = Gamemode.all
+    #this might be a good spot for the scope method where eveything will show
   end
   
   def show 
@@ -9,7 +10,6 @@ class GamemodesController < ApplicationController
   end
   
   def new 
-    #make it so that its actually new 
     if logged_in?
       @gamemode = Gamemode.new
     else
@@ -41,7 +41,9 @@ class GamemodesController < ApplicationController
   end
   
   def destroy
-  
+    @gamemode = Gamemode.find(params[:id])
+    @gamemode.destroy
+    redirect_to signup_path
   end
 
   private

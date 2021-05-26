@@ -18,7 +18,20 @@
     <%= f.hidden_field :creator, value: current_user.username %>  
     
     <br/>
-    <%= f.collection_select :gamemode_id, Gamemode.all, :id, :mode_name, prompt: true%><br>
+    Game mode: <%= f.collection_select :gamemode_id, Gamemode.all, :id, :mode_name, prompt: true%><br>
+    
+    <br/>
+
+    <% if @loadout%>  
+    <%=%>
+    <%=%>
+    <%=%>  
+
+    Select Loadout: <%= f.collection_select :loadout_id, Loadout.all, :id, :loadout_name, prompt: true%><br>
+    
+    
+    
+    
     <br/>
     <%= f.submit @tactic.persisted? ? 'Save Changes' : 'Create Tactic' %><br>
    

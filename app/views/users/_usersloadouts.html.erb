@@ -1,7 +1,9 @@
 <br/>
 <% @loadouts.each do |b|%>
     <div class="Loadout">
-    loadout name: <%= b.loadout_name %> 
+    
+    loadout name: <%= b.loadout_name %>
+    <%=link_to 'Create a new tactic using this laodout', new_loadout_tactic_path(b)%>
     <br/>
     weapon:<%= b.weapon %>
     <br/>

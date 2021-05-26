@@ -10,8 +10,8 @@ Rails.application.routes.draw do
   resources :gamemodes
   resources :sessions
   resources :users
-  resources :tactics do 
-    resources :loadouts
+  resources :loadouts do 
+    resources :tactics
   end
-  resources :loadouts
+  resources :tactics
 end

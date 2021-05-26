@@ -3,8 +3,11 @@
 <% @user.tactics.each do |tactic|%>
     <br/>
     <br/>
-    For game mode: <%=tactic.gamemode.mode_name%>
+    For game mode: <%=link_to tactic.gamemode.mode_name, gamemode_path(tactic.gamemode)%>
+    <br/>
+    Loadout:<%= link_to tactic.loadout.loadout_name, loadout_tactics_path(tactic.loadout) %>
     <br/>
     <%=tactic.strategy%>
+    <%= link_to 'edit', edit_tactic_path(tactic)%>
 <%end%>
 </div>

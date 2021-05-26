@@ -1,7 +1,11 @@
 class TacticsController < ApplicationController
     
   def index
-    @tactics = Tactic.all
+    if params[:loadout_id]
+      @tactics = Tactic.where(loadout_id: params[:loadout_id])
+    else
+      @tactics = Tactic.all
+    end
   end
     
   def show 
@@ -20,9 +24,10 @@ class TacticsController < ApplicationController
   def create 
     @tactic = current_user.tactics.build(tactic_params)
     if @tactic.save
-      redirect_to tactic_path(@tactic)
+      redirect_to user_path(current_user)
     else
       render :new
+      binding.pry
     end
   end
 
@@ -43,7 +48,7 @@ class TacticsController < ApplicationController
   end
       
   def destroy
-    #edit this 
+    @tactic = Tactic.find(params[:id]) 
     @tactic.destroy
     redirect_to signup_path
   end
@@ -55,7 +60,7 @@ class TacticsController < ApplicationController
   #end
 
   def tactic_params
-    params.require(:tactic).permit(:user_id, :gamemode_id, :strategy, :creator)
+    params.require(:tactic).permit(:user_id, :gamemode_id, :strategy, :creator, :loadout_id)
   end 
 
   def require_login

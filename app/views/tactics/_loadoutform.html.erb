@@ -1,0 +1,52 @@
+ <%= f.fields_for :loadouts do |c| %>
+
+    <%= c.hidden_field :creator, value: current_user.username %>
+
+    <%= c.label :loadout_name %>
+    <%= c.text_field :loadout_name %><br>
+    
+    <%= c.label :weapon %>
+    <%= c.text_field :weapon %><br>
+    
+    <%= c.label :optic %>
+    <%= c.text_field :optic %><br>
+    
+    <%= c.label :muzzle%>
+    <%= c.text_field :muzzle%><br>
+    
+    <%= c.label :barrel %>
+    <%= c.text_field :barrel%><br>
+    
+    <%= c.label :underbarrel %>
+    <%= c.text_field :underbarrel %><br>
+    
+    <%= c.label :ammunition %>
+    <%= c.text_field :ammunition %><br>
+    
+    <%= c.label :stock %>
+    <%= c.text_field :stock %><br>
+    
+    <%= c.label :girp %>
+    <%= c.text_field :girp %><br>
+    
+    <%= c.label :gun_perk %>
+    <%= c.text_field :gun_perk %><br>
+    
+    <%= c.label :perk_1 %>
+    <%= c.text_field :perk_1 %><br>
+    
+    <%= c.label :perk_2 %>
+    <%= c.text_field :perk_2 %><br>
+    
+    <%= c.label :perk_3 %>
+    <%= c.text_field :perk_3 %><br>
+    
+    <%= c.label :lethal %>
+    <%= c.text_field :lethal %><br>
+    
+    <%= c.label :tactical %>
+    <%= c.text_field :tactical %><br>
+
+    <%= c.label :remarks %>
+    <%= c.text_area :remarks %><br>
+<% end %>

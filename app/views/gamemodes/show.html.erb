@@ -1,6 +1,20 @@
 <br/>
 <br/>
-
-SHOW route for GAMEMODE
-<%@gamemode.mode_name>
+GAMEMODE: <%=@gamemode.mode_name%>
 <br/>
+<br/>
+
+<div class=" mode users">
+    <% @gamemode.users.uniq.each do |user|%>
+    <br/>
+        <%= user.username%>
+    <% end %>
+</div>
+<br/>
+<br/>
+<div class="mode tactics">
+    <% @gamemode.tactics.each do |tactic|%>
+    <br/>
+        <%= tactic.strategy %>
+    <% end %>
+</div>
